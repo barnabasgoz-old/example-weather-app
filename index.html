@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<script>
+    var apikey = ""
+    function fetch123() {
+        document.getElementById('spinnerwrap').classList.remove('hide');
+        document.getElementById('spinnerwrap').classList.add('show2');
+
+        
+        var varos = document.getElementById('varos').value
+        console.log(varos)
+        fetch(apikey)
+            .then(response => response.json())
+            .then(data => {
+                    console.log(data)
+                    if (data.success == false) {
+                        document.getElementById('spinnerwrap').classList.remove('show2');
+                        document.getElementById('spinnerwrap').classList.add('hide')
+                        document.getElementById('error').classList.remove('hide');
+                        document.getElementById('error').classList.add('show');
+                    } else {
+                        document.getElementById('spinnerwrap').classList.remove('show2');
+                        document.getElementById('spinnerwrap').classList.add('hide');
+
+                        var weatherdiv = document.createElement('div');
+                        weatherdiv.className = 'parameters';
+                        var closebtn = document.createElement('button')
+
+                        closebtn.setAttribute('onclick', 'return this.parentNode.remove();');
+                        closebtn.textContent = 'X';
+
+                        weatherdiv.appendChild(closebtn);
+
+                        const contentDiv = document.getElementById("wrapper");
+                        contentDiv.prepend(weatherdiv)
+                        var kijelezp2 = document.createElement('h1');
+                        kijelezp2.id = 'paragraph1';
+                        kijelezp2.className = 'varos'
+                        var text2 = document.createTextNode(data.location.name);
+                        kijelezp2.appendChild(text2);
+                        weatherdiv.appendChild(kijelezp2);
+
+                        var kijelezp3 = document.createElement('p');
+                        kijelezp3.className = 'nemertek'
+                        kijelezp3.id = 'off';
+                        var text3 = document.createTextNode("Hőfok:");
+                        kijelezp3.appendChild(text3);
+                        weatherdiv.appendChild(kijelezp3);
+
+                        var kijelezp4 = document.createElement('p');
+                        kijelezp4.className = 'ertek'
+                        kijelezp4.id = 'paragraph2';
+                        var text4 = document.createTextNode(data.current.temperature);
+                        kijelezp4.appendChild(text4);
+                        weatherdiv.appendChild(kijelezp4);
+
+                        var kijelezp5 = document.createElement('p');
+                        kijelezp5.id = 'off';
+                        kijelezp5.className = 'nemertek'
+                        var text5 = document.createTextNode('Ennyinek érződik:');
+                        kijelezp5.appendChild(text5);
+                        weatherdiv.appendChild(kijelezp5);
+
+                        var kijelezp6 = document.createElement('p');
+                        kijelezp6.id = 'paragraph3';
+                        kijelezp6.className = 'ertek'
+                        var text6 = document.createTextNode(data.current.feelslike);
+                        kijelezp6.appendChild(text6);
+                        weatherdiv.appendChild(kijelezp6);
+
+                        var kijelezp7 = document.createElement('p');
+                        kijelezp7.id = 'off';
+                        kijelezp7.className = "nemertek"
+                        var text7 = document.createTextNode('Légnyomás:');
+                        kijelezp7.appendChild(text7);
+                        weatherdiv.appendChild(kijelezp7);
+
+                        var kijelezp8 = document.createElement('p');
+                        kijelezp8.className = 'ertek'
+                        kijelezp8.id = 'paragraph4';
+                        var text8 = document.createTextNode(data.current.pressure);
+                        kijelezp8.appendChild(text8);
+                        weatherdiv.appendChild(kijelezp8);
+
+                        var kijelezp9 = document.createElement('p');
+                        kijelezp9.id = 'off';
+                        kijelezp9.className = 'nemertek'
+                        var text9 = document.createTextNode('UV index:');
+                        kijelezp9.appendChild(text9);
+                        weatherdiv.appendChild(kijelezp9);
+
+                        var kijelezp10 = document.createElement('p');
+                        kijelezp10.className = 'ertek'
+                        kijelezp10.id = 'paragraph5';
+                        var text10 = document.createTextNode(data.current.uv_index);
+                        kijelezp10.appendChild(text10);
+                        weatherdiv.appendChild(kijelezp10);
+
+
+                    }
+                }
+
+            );
+
+    }
+</script>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+        body {
+            background-color: #fef5e7;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23313131' fill-opacity='0.4'%3E%3Cpath fill-rule='evenodd' d='M11 0l5 20H6l5-20zm42 31a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM0 72h40v4H0v-4zm0-8h31v4H0v-4zm20-16h20v4H20v-4zM0 56h40v4H0v-4zm63-25a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM53 41a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-30 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-28-8a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zM56 5a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zm-3 46a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM21 0l5 20H16l5-20zm43 64v-4h-4v4h-4v4h4v4h4v-4h4v-4h-4zM36 13h4v4h-4v-4zm4 4h4v4h-4v-4zm-4 4h4v4h-4v-4zm8-8h4v4h-4v-4z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        @media screen and (max-width: 992px) {
+            .off {
+                display: none;
+                z-index: -40;
+            }
+        }
+
+        @media screen and (min-width: 993px) {
+            .off {
+                display: none;
+                z-index: -40;
+            }
+        }
+
+        .on {
+            display: block;
+            z-index: 50;
+        }
+
+        #wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            width: 100%;
+        }
+
+        .varos {
+            margin-top: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 200;
+        }
+
+        .ertek {
+
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+
+        }
+
+        .nemertek {
+
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 200;
+
+        }
+
+        .parameters {
+            background-color: #FEF5E7;
+            width: 200px;
+            height: 400px;
+            margin-left: 1.7%;
+            margin-right: 1.7%;
+            margin-top: 5%;
+            border: 10px;
+            border-color: black;
+            border-radius: 25px;
+            text-align: center;
+            display: block;
+            -webkit-box-shadow: 0px 0px 47px 16px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 0px 0px 47px 16px rgba(0, 0, 0, 0.75);
+            box-shadow: 0px 0px 47px 16px rgba(0, 0, 0, 0.75);
+        }
+
+        @media screen and (max-width: 992px) {
+            .parameters {
+                width: 190px;
+                height: 400px;
+                margin-left: 1.5%;
+                margin-right: 1.5%;
+            }
+        }
+
+        .parameters button {
+            float: right;
+            margin-top: 3%;
+            margin-right: 3%;
+            font-size: 11px;
+        }
+
+        .parameters button:hover {
+            font-size: 13px;
+        }
+
+        .inputdevice input {
+            width: 300px;
+            height: 20px;
+            font-size: 19px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px;
+            font-family: 'Roboto', sans-serif;
+            border: 1px solid;
+            border-color: rgb(22, 22, 22);
+            border-radius: 25px;
+            color: rgb(22, 22, 22);
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            transition: 0.5s;
+        }
+
+        input::placeholder {
+            color: rgb(180, 180, 180);
+            font-family: 'Roboto', sans-serif;
+            font-weight: 200;
+        }
+
+        input:focus {
+            -webkit-box-shadow: 0px 0px 30px 4px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 0px 0px 30px 4px rgba(0, 0, 0, 0.75);
+            box-shadow: 0px 0px 30px 4px rgba(0, 0, 0, 0.75);
+
+        }
+
+        input:hover {
+            letter-spacing: 2px;
+        }
+
+        .inputdevice h3 {
+            font-size: 1.8rem;
+            font-family: cursive;
+            text-align: center;
+            color: rgb(22, 22, 22);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+
+
+        }
+
+        .inputdevice {
+            background-color: #FEF5E7;
+            width: 420px;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+            border: 10px;
+            border-color: black;
+            border-radius: 25px;
+            -webkit-box-shadow: 0px 0px 47px 16px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 0px 0px 47px 16px rgba(0, 0, 0, 0.75);
+            box-shadow: 0px 0px 47px 16px rgba(0, 0, 0, 0.75);
+        }
+
+        .topnav {
+            background-color: rgb(49, 49, 49);
+            width: 100%;
+            height: 50px;
+            margin-left: 0%;
+            margin-top: 0%;
+            left: 0%;
+            top: 0%;
+            position: absolute;
+        }
+
+        .logo1 {
+            width: 100px;
+            height: 100px;
+            z-index: 50;
+            margin-right: 15px;
+            cursor: pointer;
+            transition: 1s;
+
+        }
+
+        .logo2 {
+            width: 100px;
+            height: 100px;
+            z-index: 50;
+            cursor: pointer;
+            transition: 1s;
+
+        }
+
+        .wrap2 {
+            display: flex;
+            height: auto;
+            width: 100%;
+        }
+
+        .wrap2 {
+            margin-top: 25%;
+        }
+
+        @media screen and (min-width: 720px) {
+            .wrap2 {
+
+                margin-top: 7%;
+            }
+        }
+
+        .flexforpic {
+            display: flex;
+            width: 100%;
+            height: auto;
+            justify-content: center;
+            margin-top: 0%;
+        }
+
+        @media screen and (min-width: 720px) {
+            .flexforpic {
+                justify-content: center;
+            }
+        }
+
+        .flex {
+            display: flex;
+            width: 100%;
+        }
+
+        button {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            transition: 0.4s;
+            background-color: rgb(54, 114, 246);
+            color: rgb(18, 59, 123);
+            text-align: center;
+            border-radius: 25px;
+            border: 1px solid;
+            border-color: rgb(18, 59, 123);
+        }
+
+        .inputdevice button {
+            width: 100px;
+            height: 30px;
+            margin-left: 37%;
+            margin-top: 8%;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .inputdevice button:hover {
+            width: 130px;
+            height: 30px;
+            margin-left: 34%;
+            margin-top: 8%;
+            letter-spacing: 2px;
+        }
+
+        .spinnerwrapper {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 100vw;
+            height: 100vh;
+            background-color: rgb(0, 0, 0);
+            z-index: 1000;
+            opacity: 0.5;
+            pointer-events: none;
+            transition: 1s;
+        }
+
+        .show {
+            display: block;
+            transition: 1s;
+        }
+
+        .show2 {
+            display: block;
+            transition: 1s;
+        }
+
+        .hide {
+            display: none;
+            transition: 1s;
+        }
+
+        button:hover {
+            box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+
+            cursor: pointer;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(1deg);
+            }
+
+            to {
+                transform: rotate(359deg);
+            }
+        }
+    </style>
+    <title>WeatherNow • az időjárás alkalmazás</title>
+    <link rel="icon" type="image/png" href="/d wedör.png">
+</head>
+
+<body>
+    <div class="topnav">
+    </div>
+    <div class="flexforpic">
+        <img class="logo1" onclick="window.location = 'index.html'" src="d wedör.png" alt=" ">
+        <img class="logo2" onclick="window.location = 'https://goozbarnabas.gq'" src=" goozbarnabas_logo.png " alt=" ">
+    </div>
+    <div class="wrap2">
+        <div class="inputdevice">
+            <h3>Üdvözlünk a weathernow.ga-n!</h3>
+            <div class="flex">
+                <input type='text' placeholder="Keresett Város:" id="varos"></input>
+            </div>
+            <div style="text-align: center;" class="hide" id="error">
+                <img src="/error.png" style="width: 20px; height: 20px; margin: 0px; margin-top: 10px;" alt="">
+                <p style="margin: 0px; font-family: 'Montserrat', sans-serif;">Úgy tűnik elgépeltél valamit! <br>
+                    Próbáld meg újra, de most ékezet nélkül.</p>
+            </div>
+            <button onclick="fetch123()">Keresés</button>
+        </div>
+    </div>
+    <div id="wrapper"></div>
+    <div id="spinnerwrap" class="spinnerwrapper hide">
+        <img style="z-index: 2000; position: absolute; opacity: 2; width: 100px; height: auto; top: 46%; left: 46%; transform: translate(-50%, -50%); animation: spin 2s infinite linear;"
+            src="/load.png">
+        <div id="interneterror" style="color: white; position: absolute; top: 75%; text-align: center; left: 50%; transform: translate(-50%);">
+            <img style="width: 20px; height: 20px; opacity: 2;" src="/error.png" alt="">
+            <h1 style="font-family: 'Montserrat', sans-serif; font-size: 15px;">Itt ragadtál? Nézd meg van-e internet kapcsolatod! Ha van próbáld meg újra tölteni az oldalt.</h1>
+        </div>
+    </div>
+
+</body>
+
+</html>
