@@ -1,18 +1,28 @@
-# Example Weather App
+# Example Weather Webapp
+----
 
-## Introduction
+<a href="https://img.shields.io/badge/License-the Unilicense-brightgreen"><img src="https://img.shields.io/badge/License-the Unilicense-brightgreen"></a>
 
-> Do you want to create a weather app fast and simple? Well, here is my project called WeatherNow!
+## Table of Contents
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contribution](#contribution)
+- [Test Instructions](#test-instructions)
+- [Contact Information](#contact-information)
 
-## Installation
+### Description
+This is my weather app called WeatherNow, which was created with a free api. Because I don't use it, anyone can create it's own based on this. (Like a template) Feel free to reuse it!
 
-### 1. Clone the repository using git:
-> git clone https://github.com/barnabasgoz/example-weather-app.git
+### Installation
+1. Clone/Fork this repository. 2. Rebrand it (Change the pictures, the signs, etc.) 3. Set up your api(index.html 3rd row: var apikey = "INSERT HERE") 4. Change the card texts based on the response from the api.
 
-### 2. Rebrand the application:
-change the pictures, the texts, etc.
-### 3. Set up your api: <br/>
-index.html 3rd row: 
-> var apikey = "" 
+### Usage
+Use it as you want, this is just a template, but could you star it?
 
-### 4. Change the output card based on the response.
+### Contribution
+It's a template, so unfortunately you cannot contribute to this project, but install it and use it yourself.
+
+### Contact-Information
+[Github Profile](https://github.com/barnabasgoz)
+goozbarnabas@gmail.com
