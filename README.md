@@ -1,14 +1,14 @@
-# Example Weather Webapp
+# Example Weather web application
 ----
 
-<a href="https://img.shields.io/badge/License-the Unilicense-brightgreen"><img src="https://img.shields.io/badge/License-the Unilicense-brightgreen"></a>
+<a href="https://img.shields.io/badge/license-MIT-brightgreen"><img src="https://img.shields.io/badge/license-MIT-brightgreen"></a>
+<img width="1343" alt="Screenshot 2022-04-02 at 23 30 15" src="https://user-images.githubusercontent.com/82385832/161401869-80e72d36-c15c-4d1c-96de-dcbc43d487d4.png">
 
 ## Table of Contents
 - [Description](#description)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contribution](#contribution)
-- [Test Instructions](#test-instructions)
 - [Contact Information](#contact-information)
 
 ### Description
@@ -18,7 +18,7 @@ This is my weather app called WeatherNow, which was created with a free api. Bec
 1. Clone/Fork this repository. 2. Rebrand it (Change the pictures, the signs, etc.) 3. Set up your api(index.html 3rd row: var apikey = "INSERT HERE") 4. Change the card texts based on the response from the api.
 
 ### Usage
-Use it as you want, this is just a template, but could you star it?
+After install, open the index.html file in a browser.
 
 ### Contribution
 It's a template, so unfortunately you cannot contribute to this project, but install it and use it yourself.
